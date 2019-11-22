@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 import Cita from './Cita.jsx'
 
@@ -23,6 +24,10 @@ class Listcitas extends Component {
       </div>
     );
   }
+}
+Listcitas.propTypes={
+  citas: PropTypes.array.isRequired,
+  DelCita: PropTypes.func.isRequired
 }
 
 export default Listcitas;

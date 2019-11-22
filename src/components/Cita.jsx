@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 class Cita extends Component {
   state = {};
@@ -31,5 +32,14 @@ class Cita extends Component {
     );
   }
 }
-
+Cita.propTypes={
+  info: PropTypes.shape({
+    Fecha: PropTypes.string.isRequired,
+    Hora: PropTypes.string.isRequired,
+    NMascota: PropTypes.string.isRequired,
+    NDue: PropTypes.string.isRequired,
+    Sintomas: PropTypes.string.isRequired
+  }),
+  DelCita: PropTypes.func.isRequired
+}
 export default Cita;

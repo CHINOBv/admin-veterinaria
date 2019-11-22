@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import uuid from "uuid";
+import PropTypes from 'prop-types';
 
 class Addcitas extends Component {
   NMascota = React.createRef();
@@ -120,6 +121,9 @@ class Addcitas extends Component {
       </div>
     );
   }
+}
+Addcitas.propTypes={
+  Crearcita: PropTypes.func.isRequired
 }
 
 export default Addcitas;
