@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Cita from './Cita.jsx'
+
 class Listcitas extends Component {
   state = {};
   render() {
@@ -10,6 +12,12 @@ class Listcitas extends Component {
       <div className="card">
         <div className="card-body">
           <h3 className="card-title text-center">{message}</h3>
+          {Object.keys(citas).map(citas =>(
+              <Cita
+              key={citas}
+              info={this.props.citas[citas]}
+              />
+          ))}
         </div>
       </div>
     );
