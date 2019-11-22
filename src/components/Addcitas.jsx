@@ -8,26 +8,45 @@ class Addcitas extends Component {
   Hora = React.createRef();
   Sintomas = React.createRef();
 
-  state = {};
+  state = {
+
+    "error":false
+  };
 
   CrearCita = e => {
     //Prevenir Default
     e.preventDefault();
-    //Create Oject Whit Data of Citas
-    const Nuevacita = {
-      id: uuid(),
-      NMascota: this.NMascota.current.value,
-      NDue: this.NDue.current.value,
-      Fecha: this.Fecha.current.value,
-      Hora: this.Hora.current.value,
-      Sintomas: this.Sintomas.current.value
-    };
-    //Send Object to App.js
-    this.props.Crearcita(Nuevacita);
-    //Reset
-    e.curretTarget.reset();
+
+    const NMascota= this.NMascota.current.value,
+          NDue= this.NDue.current.value,
+          Fecha= this.Fecha.current.value,
+          Hora= this.Hora.current.value,
+          Sintomas=this.Sintomas.current.value;
+
+    //validate fields
+    if(NMascota==="" || NDue=== ""|| Fecha===""|| Hora===""|| Sintomas===""){
+      this.setState({
+        "error":true
+      })
+    }else{
+
+      //Create Oject Whit Data of Citas
+      const Nuevacita = {
+        "id": uuid(),
+        NMascota,
+        NDue,
+        Fecha,
+        Hora,
+        Sintomas
+      };
+      //Send Object to App.js
+      this.props.Crearcita(Nuevacita);
+      //Reset
+      e.currentTarget.reset();
+    }
   };
   render() {
+    const error = this.state.error;
     return (
       <div className="card md-5">
         <div className="card-body">
@@ -83,14 +102,20 @@ class Addcitas extends Component {
                 ></textarea>
               </div>
             </div>
-            <div className="form-group row justify-content-end">
-              <div className="col-sm-3">
-                <button type="submit" className="btn btn-success w-100">
-                  Agregar
-                </button>
-              </div>
+            <div className="form-group">
+              <button type="submit" className="btn btn-success w-100">
+                Agregar
+              </button>
             </div>
           </form>
+          {
+            error?
+          <div className="alert alert-danger text-center" role="alert">
+              Favor de llenar  todos los campos
+          </div>
+          :
+          ""
+          }
         </div>
       </div>
     );
