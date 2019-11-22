@@ -16,6 +16,7 @@ class Listcitas extends Component {
               <Cita
               key={citas}
               info={this.props.citas[citas]}
+              DelCita={this.props.DelCita}
               />
           ))}
         </div>

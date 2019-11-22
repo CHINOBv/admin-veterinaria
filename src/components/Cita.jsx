@@ -2,8 +2,12 @@ import React, { Component } from "react";
 
 class Cita extends Component {
   state = {};
+  DelCita=()=>{
+    //send
+    this.props.DelCita(this.props.info.id);
+  }
   render() {
-    const { id, NMascota, NDue, Fecha, Hora, Sintomas } = this.props.info;
+    const { NMascota, NDue, Fecha, Hora, Sintomas } = this.props.info;
     return (
       <div className="media mt-3">
         <div className="media-body">
@@ -21,6 +25,7 @@ class Cita extends Component {
             <span>Sintomas: </span>{Sintomas}
           </p>
           <p className="card-title"></p>
+          <button className="btn btn-danger btn-block" onClick={this.DelCita}>Borrar</button>
         </div>
       </div>
     );

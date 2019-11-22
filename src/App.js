@@ -16,8 +16,21 @@ class App extends Component {
     this.setState({
       citas
     })
-    //console.log(citas);
     
+  }
+  DelCita=id=>{
+    //Copy State
+    const citaActual =[...this.state.citas];
+    
+    //Del State
+    const citas = citaActual.filter(cita=>cita.id !== id);
+
+
+    //Update State
+    this.setState({
+      citas
+    })
+
   }
   render() {
     return (
@@ -32,6 +45,7 @@ class App extends Component {
           <div className="col-md-6">
             <Listcitas
             citas={this.state.citas}
+            DelCita={this.DelCita}
             />
           </div>
         </div>
