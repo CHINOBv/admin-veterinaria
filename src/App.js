@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{Component} from "react";
+import "./Styles.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from "./components/Header.jsx";
+import Addcitas from "./components/Addcitas.jsx";
+
+class App extends Component {
+  state = {
+    citas:[]
+  };
+
+  Crearcita=(Nuevacita)=>{
+    const citas = [...this.state.citas,Nuevacita];
+    
+    this.setState({
+      citas
+    })
+    console.log(citas);
+    
+  }
+  render() {
+    return (
+      <div className="container">
+        <Header titulo="Administrador de Pacientes" />
+        <div className="row">
+          <div className="col-md-6 mx-auto">
+            <Addcitas 
+            Crearcita={this.Crearcita}
+            />
+          </div>
+          <div className="col-md-6 mx-auto"></div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
