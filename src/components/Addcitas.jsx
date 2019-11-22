@@ -51,7 +51,7 @@ class Addcitas extends Component {
     return (
       <div className="card md-5">
         <div className="card-body">
-          <h2 className="card-text mb-5 text-center"> Add</h2>
+          <h2 className="card-text mb-5 text-center"> Agrega Una Cita</h2>
           <form onSubmit={this.CrearCita}>
             <div className="form-group row">
               <label className="col-sm-4 col-lg-2 col-form-label">
