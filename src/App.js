@@ -3,6 +3,7 @@ import "./Styles.css";
 
 import Header from "./components/Header.jsx";
 import Addcitas from "./components/Addcitas.jsx";
+import Listcitas from "./components/Listcitas.jsx";
 
 class App extends Component {
   state = {
@@ -15,7 +16,7 @@ class App extends Component {
     this.setState({
       citas
     })
-    console.log(citas);
+    //console.log(citas);
     
   }
   render() {
@@ -23,12 +24,16 @@ class App extends Component {
       <div className="container">
         <Header titulo="Administrador de Pacientes" />
         <div className="row">
-          <div className="col-md-6 mx-auto">
+          <div className="col-md-6">
             <Addcitas 
             Crearcita={this.Crearcita}
             />
           </div>
-          <div className="col-md-6 mx-auto"></div>
+          <div className="col-md-6">
+            <Listcitas
+            citas={this.state.citas}
+            />
+          </div>
         </div>
       </div>
     );
